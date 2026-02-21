@@ -1,6 +1,21 @@
-export default function BlogCard({ image, date, title, description }) {
+import React from "react";
+
+type BlogCardProps = {
+  image: string;
+  date: string;
+  title: string;
+  description: string;
+};
+
+export default function BlogCard({
+  image,
+  date,
+  title,
+  description,
+}: BlogCardProps) {
   return (
     <div className="bg-[#1f3c4a] rounded-xl overflow-hidden shadow-md flex flex-col hover:scale-[1.02] transition text-left max-w-sm mx-auto">
+      
       <img
         src={image}
         alt={title}
@@ -8,6 +23,7 @@ export default function BlogCard({ image, date, title, description }) {
       />
 
       <div className="p-4 flex flex-col flex-grow text-white">
+        
         <span className="bg-white text-[#1f3c4a] text-[11px] font-semibold px-2.5 py-0.5 rounded-full mb-2 self-start">
           {date}
         </span>
@@ -25,6 +41,7 @@ export default function BlogCard({ image, date, title, description }) {
         <button className="text-xs font-medium hover:underline text-white self-center">
           Read more →
         </button>
+
       </div>
     </div>
   );
