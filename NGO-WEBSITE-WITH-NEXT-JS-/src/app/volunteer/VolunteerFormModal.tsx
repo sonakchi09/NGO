@@ -39,11 +39,9 @@ export default function VolunteerFormModal({
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/volunteer",
-        {
-          ...formData,
-        }
-      );
+  "https://ngo-backend-rosy.vercel.app/api/volunteer",
+  formData
+);
 
       alert(res.data.message);
       onClose();

@@ -30,9 +30,9 @@ const handlePayment = async () => {
     };
 
     const response = await axios.post(
-      "http://localhost:5000/api/donation",
-      payload
-    );
+  "https://ngo-backend-rosy.vercel.app/api/donation",
+  payload
+);
 
     console.log("Success:", response.data);
     alert("Donation saved successfully!");
