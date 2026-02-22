@@ -30,7 +30,7 @@ const handlePayment = async () => {
     };
 
     const response = await axios.post(
-  "https://ngo-backend-plum.vercel.app/api/donation",
+  "https://ngobackend-ashen.vercel.app/api/donation",
   payload
 );
 
