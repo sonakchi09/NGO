@@ -23,6 +23,16 @@ export default function DonatePage() {
   // ✅ This is where you will send data to backend
 
 const handlePayment = async () => {
+  if (!selectedAmount) {
+    alert("Please select donation amount");
+    return;
+  }
+
+  if (!donorInfo.name || !donorInfo.email || !donorInfo.phone || !donorInfo.aadhaar || !donorInfo.address) {
+    alert("Please fill all fields");
+    return;
+  }
+
   try {
     const payload = {
       amount: selectedAmount,
@@ -30,15 +40,14 @@ const handlePayment = async () => {
     };
 
     const response = await axios.post(
-  "https://ngobackend-ashen.vercel.app/api/donation",
-  payload
-);
+      "https://ngobackend-ashen.vercel.app/api/donation",
+      payload
+    );
 
-    console.log("Success:", response.data);
-    alert("Donation saved successfully!");
+    alert(response.data.message);
   } catch (error: any) {
     console.error("Error:", error.response?.data || error.message);
-    alert("Something went wrong");
+    alert(error.response?.data?.message || "Something went wrong");
   }
 };
 
